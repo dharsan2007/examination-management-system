@@ -1,0 +1,235 @@
+/* ============================================================
+   PATCH — Append everything below to the bottom of style.css.
+   Also DELETE the old door notice block (lines from
+   "/* ── 2. DOOR NOTICE */" down to ".door-footer-bar strong{...}")
+   since those classes are fully replaced here.
+   ============================================================ */
+
+/* ── DOOR NOTICE — Seating Allotment Paper Format ─────────── */
+.door-sa-page {
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Header row: logo | title block | hall number */
+.door-sa-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px 10px;
+  border-bottom: 2px solid #222;
+  background: #fff;
+}
+
+.door-sa-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.door-sa-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.door-sa-title-block {
+  flex: 1;
+  text-align: center;
+  line-height: 1.45;
+}
+.door-sa-college {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+}
+.door-sa-addr {
+  font-size: 12.5px;
+  color: #222;
+  margin-top: 1px;
+}
+.door-sa-allot {
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: underline;
+  margin-top: 3px;
+  color: #111;
+}
+.door-sa-exam {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 2px;
+}
+
+.door-sa-hallno {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1.5px solid #333;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  align-self: flex-start;
+  background: #f8f8f8;
+  line-height: 1.5;
+}
+.door-sa-hallno strong {
+  font-size: 15px;
+  display: block;
+}
+
+/* Date & session / invigilator bar */
+.door-sa-datebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 7px 18px;
+  border-bottom: 1.5px solid #333;
+  font-size: 13px;
+  background: #f4f4f4;
+}
+.door-sa-staff-label {
+  font-size: 12px;
+  color: #555;
+}
+
+/* Seating table wrapper */
+.door-sa-tablewrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.door-sa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  table-layout: auto;
+}
+.door-sa-table th,
+.door-sa-table td {
+  border: 1px solid #bbb;
+  padding: 6px 7px;
+  text-align: center;
+  vertical-align: middle;
+}
+.door-sa-table thead th {
+  background: #efefef;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #333;
+}
+.dst-rowhead { width: 54px; }
+.dst-sno {
+  width: 36px;
+  color: #666;
+  font-size: 11px;
+  background: #fafafa;
+}
+.dst-reg {
+  min-width: 96px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.2px;
+}
+.door-sa-table tbody tr:nth-child(even) .dst-reg,
+.door-sa-table tbody tr:nth-child(even) .dst-rowlabel {
+  background: #f8f8f8;
+}
+.dst-rowlabel {
+  font-weight: 700;
+  font-size: 11.5px;
+  background: #efefef;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Class / subject info table */
+.door-sa-infowrap {
+  border-top: 2px solid #333;
+}
+.door-sa-infotable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.door-sa-infotable th,
+.door-sa-infotable td {
+  border: 1px solid #bbb;
+  padding: 7px 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+.door-sa-infotable thead th {
+  background: #efefef;
+  font-weight: 700;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+}
+.door-sa-infotable tbody td {
+  color: #111;
+  font-weight: 500;
+}
+
+/* Signature footer */
+.door-sa-footer {
+  padding: 18px 22px 22px;
+  display: flex;
+  justify-content: flex-end;
+}
+.door-sa-sig {
+  text-align: center;
+}
+.door-sa-sig-scrawl {
+  width: 150px;
+  height: 34px;
+  border-bottom: 1.5px solid #444;
+  margin: 0 auto 5px;
+}
+.door-sa-sig-title {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: #111;
+  text-transform: uppercase;
+}
+.door-sa-sig-sub {
+  font-size: 11px;
+  color: #555;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+/* Print: one hall per A4 page */
+@media print {
+  .door-sa-page {
+    page-break-after: always;
+    page-break-inside: avoid;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .door-sa-page:last-child { page-break-after: auto; }
+  .door-sa-table th,
+  .door-sa-table td,
+  .door-sa-infotable th,
+  .door-sa-infotable td {
+    border: 0.5pt solid #666 !important;
+  }
+  .door-sa-header { border-bottom: 1.5pt solid #000; }
+  .door-sa-datebar { border-bottom: 1pt solid #000; }
+  .door-sa-infowrap { border-top: 1.5pt solid #000; }
+  .dst-rowhead { background: #efefef !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .dst-sno     { background: #fafafa !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .dst-rowlabel, .door-sa-table thead th,
+  .door-sa-infotable thead th { background: #efefef !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
